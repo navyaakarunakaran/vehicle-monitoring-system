@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vehicle Monitoring Dashboard (Demo)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Vehicle Monitoring Dashboard</h1>
+    <p>Demo project: entry/exit tracking, ANPR status and transactions (mock data)</p>
+  </header>
+
+  <main class="container">
+    <section class="cards">
+      <div class="card"><h3>Total Vehicles</h3><p id="statTotal">0</p></div>
+      <div class="card"><h3>Currently Inside</h3><p id="statInside">0</p></div>
+      <div class="card"><h3>Completed Trips</h3><p id="statCompleted">0</p></div>
+      <div class="card"><h3>Pending Transactions</h3><p id="statPending">0</p></div>
+    </section>
+
+    <section class="panel">
+      <h2>Vehicle Log</h2>
+      <div class="controls">
+        <input id="searchInput" type="text" placeholder="Search by plate number...">
+        <select id="statusFilter">
+          <option value="all">All statuses</option>
+          <option value="Inside">Inside</option>
+          <option value="Completed">Completed</option>
+        </select>
+        <select id="txnFilter">
+          <option value="all">All transactions</option>
+          <option value="Paid">Paid</option>
+          <option value="Pending">Pending</option>
+          <option value="Failed">Failed</option>
+        </select>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Plate</th><th>Entry</th><th>Exit</th>
+              <th>ANPR</th><th>Transaction</th><th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="vehicleTable"></tbody>
+        </table>
+      </div>
+      <p id="emptyMsg" class="empty" hidden>No vehicles match your filters.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
